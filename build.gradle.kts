@@ -10,9 +10,11 @@ version = "0.1.0"
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
+    implementation("ruckustboom:mathx:0.1.0")
     testImplementation(kotlin("test"))
 }
 
@@ -26,6 +28,7 @@ tasks.test {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "18"
+    kotlinOptions.freeCompilerArgs += "-Xjvm-default=all"
 }
 
 publishing {
